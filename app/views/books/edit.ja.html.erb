@@ -1,0 +1,6 @@
+<h1><%= Book.human_attribute_name(:edit) %></h1>
+
+<%= render 'form', book: @book %>
+
+<%= link_to Book.human_attribute_name(:show), @book %> |
+<%= link_to Book.human_attribute_name(:back), books_path %>
