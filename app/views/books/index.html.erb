@@ -1,5 +1,12 @@
-<p id="notice"><%= notice %></p>
-
+<p class="navbar-text pull-right">
+<% if user_signed_in? %>
+  <%= link_to t('views.common.user_edit'), edit_user_registration_path, class: 'navbar-link' %> |
+  <%= link_to t('views.common.logout'), destroy_user_session_path, method: :delete, class: 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, class: 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, class: 'navbar-link'  %>
+<% end %>
+</p>
 <h1><%= Book.model_name.human %></h1>
 
 <table>
