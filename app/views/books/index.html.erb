@@ -1,4 +1,4 @@
-<p class="navbar-text pull-right">
+<p>
 <% if user_signed_in? %>
   <%= link_to t('views.common.user_list'), users_path, class: 'navbar-link'  %> |
   <%= link_to t('views.common.my_profile'), user_path(current_user.id), class: 'navbar-link'  %> |
