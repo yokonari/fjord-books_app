@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :configure_permitted_parameters
+
   #アカウント登録後のリダイレクト先
   def after_sign_up_path_for(resource)
     books_path
@@ -9,6 +11,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #アカウント編集後のリダイレクト先
   def after_update_path_for(resource)
     books_path
+  end
+
+  protected
+
+  def configure_permitted_parameters
+    # 新規登録時にnicknameの取得を許可
+    # devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname])
+    # 情報更新時にnicknameの取得を許可
+    devise_parameter_sanitizer.permit(:account_update, keys: [:profile, :post_code, :address])
   end
 
   # before_action :configure_sign_up_params, only: [:create]

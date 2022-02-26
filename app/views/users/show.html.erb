@@ -1,0 +1,11 @@
+<% if user_signed_in? && @user == current_user %>
+<h1>about me</h1>
+<% else %>
+<h1><%= @user.email %>のページ</h1>
+<% end %>
+<h3>自己紹介</h3>
+<%= @user.profile %>
+<h3>郵便番号</h3>
+<%= @user.post_code %>
+<h3>住所</h3>
+<%= @user.address %>
