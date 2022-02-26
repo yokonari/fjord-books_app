@@ -1,11 +1,22 @@
-<% if user_signed_in? && @user == current_user %>
-<h1>about me</h1>
-<% else %>
-<h1><%= @user.email %>のページ</h1>
-<% end %>
-<h3>自己紹介</h3>
-<%= @user.profile %>
-<h3>郵便番号</h3>
-<%= @user.post_code %>
-<h3>住所</h3>
-<%= @user.address %>
+<p>
+  <strong><%= User.human_attribute_name(:email) %>:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:profile) %>:</strong>
+  <%= @user.profile %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:post_code) %>:</strong>
+  <%= @user.post_code %>
+</p>
+
+<p>
+  <strong><%= User.human_attribute_name(:address) %>:</strong>
+  <%= @user.address %>
+</p>
+
+<%= link_to t('devise.shared.links.back'), :back %>
+
