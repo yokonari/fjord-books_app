@@ -4,26 +4,34 @@ ja:
       book: 本  #g
     attributes:
       book:
-        books: 本
         author: 著者  #g
         memo: メモ  #g
         picture: 写真  #g
         title: タイトル  #g
-        show: 見る
-        edit: 編集
-        destroy: 削除
-        new_book: 新規登録
-        back: 戻る
-        confirm: 本当に削除しますか？
-        notice_save: 正常に保存されました。
-        notice_update: 正常に更新されました。
-        notice_destroy: 正常に削除されました。
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  books:
+    index:
+      title: 本一覧
+    edit:
+      title: 本を編集する
+    new:
+      title: 本を登録する
+  common:
+    show: 詳細
+    edit: 編集
+    destroy: 削除
+    new_book: 新規登録
+    back: 戻る
+  notice:
+    confirm: 本当に削除しますか？
+    save: 正常に保存されました。
+    update: 正常に更新されました。
+    destroy: 正常に削除されました。
   date:
     abbr_day_names:
     - 日
