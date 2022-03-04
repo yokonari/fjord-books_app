@@ -219,6 +219,8 @@ ja:
       my_profile: マイページ
       user_edit: ユーザー編集
       logout: ログアウト
+      sign_up: アカウント登録
+      login: ログイン
     pagination:
       first: '最初'
       last: '最後'
