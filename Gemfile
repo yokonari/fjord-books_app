@@ -58,4 +58,9 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 gem 'carrierwave'
+gem 'devise'
 gem 'kaminari'
+group :development do
+  gem 'letter_opener_web'
+end
+gem 'devise-i18n'
