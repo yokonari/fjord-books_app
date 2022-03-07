@@ -246,8 +246,7 @@ ja:
     stats:
       followings: フォロー中
       followers: フォロワー
-    unfollow:
+    follow_form:
       unfollow: フォローを外す
-    follow:
       follow: フォローする
 
