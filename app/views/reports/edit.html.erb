@@ -1,0 +1,10 @@
+<% if current_user == @user %>
+  <%= link_to 'Edit', edit_report_path(@report) %> |
+  <%= link_to 'Destroy', @report, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% end %>
+<h1>Editing Report</h1>
+
+<%= render 'form', report: @report %>
+
+<%= link_to 'Show', @report %> |
+<%= link_to 'Back', reports_path %>
