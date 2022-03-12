@@ -240,9 +240,11 @@ ja:
         title: "アカウント編集"
   users:
     followers:
-      title: フォロワー
+      index:
+        title: フォロワー
     followings:
-      title: フォロー
+      index:
+        title: フォロー
     stats:
       followings: フォロー中
       followers: フォロワー
