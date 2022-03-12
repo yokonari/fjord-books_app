@@ -11,12 +11,10 @@ class UsersController < ApplicationController
 
   def followings
     @users = @user.followings.with_attached_avatar.order(:id).page(params[:page])
-    render 'followings'
   end
 
   def followers
     @users = @user.followers.with_attached_avatar.order(:id).page(params[:page])
-    render 'followers'
   end
 
   private
