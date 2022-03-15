@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<h1>Report</h1>
 <p>
   <strong>User:</strong>
   <%= link_to @user.name, @user %>
@@ -29,6 +28,6 @@
 <%= link_to 'Back', reports_path %>
 <p>
 <%= render 'comments/new', commentable: @report %>
-<%= render 'comments/index', collection: @comments, commentable: @report %>
+<%= render 'comments/index', comments: @comments, commentable: @report %>
 </p>
 

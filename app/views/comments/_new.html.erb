@@ -1,6 +1,9 @@
-<p><strong>comment:</strong></p>
+<h2>Comment</h2>
 <%= form_with( model: [commentable, Comment.new], local: true) do |form| %>
-  <%= form.text_area :content %>
-  <%= form.hidden_field :user_id, {value: current_user.id} %>
-<%= form.submit %>
+  <div class="field">
+    <%= form.text_area :content, required: true  %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
 <% end %>

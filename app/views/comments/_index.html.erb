@@ -1,20 +1,24 @@
-<table>
-  <thead>
-    <tr>
-      <th>Comment</th>
-      <th>User</th>
-      <th>Posting time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% if commentable.comments.empty? %>
+  <%= "no comment" %>
+<% else %>
+  <% commentable.comments.each do |comment| %>
+    <hr>
+    <p>
+    <strong>User:</strong>
+    <% user = User.find_by(id: comment.user_id) %>
+    <%= link_to user.name, user %>
+    <%= link_to user.email, user if user.name.empty? %>
+  </p>
 
-  <tbody>
-    <% commentable.comments.each do |comment| %>
-      <tr>
-        <td><%= comment.content %></td>
-        <td><%= @user.email %></td>
-        <td><%= l comment.created_at, format: :long %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.content %>
+  </p>
+
+  <p>
+    <strong>Posting time:</strong>
+    <%= l comment.created_at, format: :long %>
+  </p>
+  <% end %>
+<% end %>
+

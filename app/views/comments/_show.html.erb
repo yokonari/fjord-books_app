@@ -1,5 +1,17 @@
 <% commentable.comments.each do |comment| %>
-  <p><%= comment.content %></p>
-  <p><%= @user.email %></p>
-  <p><%= comment.created_at %></p>
+  <p>
+  <strong>User:</strong>
+  <%= link_to @user.name, @user %>
+  <%= link_to @user.email, @user if @user.name.empty? %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= comment.content %>
+</p>
+
+<p>
+  <strong>Posting time:</strong>
+  <%= l comment.created_at, format: :long %>
+</p>
 <% end %>
