@@ -1,8 +1,11 @@
 <h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
 <p>
   <strong><%= Report.human_attribute_name(:user) %>:</strong>
-  <%= link_to @user.name, @user %>
-  <%= link_to @user.email, @user if @user.name.empty? %>
+  <% if @report.user.name.empty? %>
+    <%= link_to @report.user.email, @report.user %>
+  <% else %>
+    <%= link_to @report.user.name, @report.user %>
+  <% end %>
 </p>
 
 <p>
@@ -20,7 +23,7 @@
   <%= l @report.created_at, format: :long %>
 </p>
 
-<% if current_user == @user %>
+<% if current_user == @report.user %>
   <%= link_to t('views.common.edit'), edit_report_path(@report) %> |
   <%= link_to t('views.common.destroy'), @report, method: :delete, data: { confirm: t('views.common.delete_confirm') } %> |
 <% end %>
@@ -28,7 +31,6 @@
 <%= link_to t('views.common.back'), reports_path %>
 
 <p>
-<%= render 'comments/new', commentable: @report %>
-<%= render 'comments/index', comments: @comments, commentable: @report %>
+<%= render 'comments/form', commentable: @report %>
+<%= render 'comments/list', comments: @report.comments %>
 </p>
-

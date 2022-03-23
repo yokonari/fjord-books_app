@@ -251,7 +251,7 @@ ja:
     destroy:
       notice: "フォロー解除しました。"
   comments:
-    index:
+    list:
       notice: まだコメントはありません。
   # devise-i18n-viewsをオーバーライド
   devise:

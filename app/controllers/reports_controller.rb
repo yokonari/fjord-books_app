@@ -9,7 +9,6 @@ class ReportsController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: @report.user_id)
   end
 
   def new
@@ -19,15 +18,21 @@ class ReportsController < ApplicationController
   def edit; end
 
   def create
-    @report = current_user.reports.create(report_params)
+    @report = current_user.reports.new(report_params)
 
-    @report.save
-    redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
+    if @report.save
+      redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
+    else
+      render :new
+    end
   end
 
   def update
-    @report.update(report_params)
-    redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+    if @report.update(report_params)
+      redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -46,8 +51,6 @@ class ReportsController < ApplicationController
   end
 
   def ensure_user
-    @reports = current_user.reports
-    @report = @reports.find_by(id: params[:id])
-    redirect_to new_report_path unless @report
+    redirect_to new_report_path unless @report.user == current_user
   end
 end

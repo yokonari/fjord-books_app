@@ -3,17 +3,14 @@
 class CommentsController < ApplicationController
   before_action :set_commentable
 
-  def index; end
-
-  def new
-    @comment = @commentable.comments.create
-  end
-
   def create
-    @comment = @commentable.comments.create(comment_params)
+    @comment = @commentable.comments.new(comment_params)
 
-    @comment.save
-    redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+    if @comment.save
+      redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
+    else
+      redirect_to @commentable
+    end
   end
 
   private
