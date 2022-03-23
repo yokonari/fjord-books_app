@@ -9,16 +9,11 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @commentable, notice: t('controllers.common.notice_create', name: Comment.model_name.human)
     else
-      redirect_to @commentable
+      render @commentable
     end
   end
 
   private
-
-  def set_commentable
-    resource, id = request.path.split('/')[1, 2]
-    @commentable = resource.singularize.classify.constantize.find(id)
-  end
 
   def comment_params
     params.require(:comment).permit(:content).merge(user_id: current_user.id)
