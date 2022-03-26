@@ -2,7 +2,6 @@
 
 class Reports::CommentsController < ApplicationController
   include Commentable
-  before_action :set_commentable
 
   private
 
