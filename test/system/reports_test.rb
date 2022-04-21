@@ -48,5 +48,7 @@ class ReportsTest < ApplicationSystemTestCase
       click_on '削除'
     end
     assert_text '日報が削除されました。'
+    assert_no_text '初めての日報です。'
+    assert_no_selector 'a', text: '削除'
   end
 end
